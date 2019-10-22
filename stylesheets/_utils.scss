@@ -1,0 +1,77 @@
+/** * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *
+ *  Filename:
+ *    Utils (./stylesheets/_utils.scss)
+ *
+ *  Description:
+ *    Technical or highly syntactical content that will likekly only be used
+ *    somewhat deep and/or arbitariy within other (non-end-user-facing) code.
+ *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  */
+
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+// REMINDERS
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+// @TODO: Delete This...
+$selectors: ".module, body.alternate .module ";
+
+//Then to use that, you have to interpolate the variable, like this:
+#{$selectors} {
+	background : red;
+}
+
+//That works with nesting too:
+.nested {
+	#{$selectors} {
+		background : red;
+	}
+}
+
+//Prefixing: A variable can also be only a part of a selector, like a prefix.
+$prefix: css-tricks-;
+
+.#{$prefix}button {
+	padding : 0.5rem;
+}
+
+//You could use nesting to do prefixing as well:
+.#{$prefix} {
+	&module {
+		padding : 1rem;
+	}
+	
+	
+	&header {
+		font-size : 110%;
+	}
+	
+	
+	&footer {
+		font-size : 90%;
+	}
+}
+
+//Selectors in a Map
+//Perhaps your abstraction lends itself to a key value pair situation. That's a map in Sass.
+$selectorMap : (
+		selectorsFoo: ".module",
+		selectorsBar: ".moodule-2"
+);
+
+//You can use them individually like:
+#{map-get($selectorMap, selectorsFoo)} {
+	padding : 1rem;
+}
+
+//Or loop through them:
+@each $selectorName, $actualSelector in $selectorMap {
+	#{$actualSelector} {
+		padding : 1rem;
+	}
+}
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+$button-element-selectors: "button, .button, [role=button], [type=button], [type=submit]";
+

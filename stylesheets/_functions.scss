@@ -1,0 +1,27 @@
+/** * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *
+ *  Filename:
+ *    Functions (./stylesheets/_functions.scss)
+ *
+ *  Description:
+ *    Defines functions used elsewhere.
+ *    Both for intended internal-- and end-user-- use.
+ *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  */
+
+//----------------------------------------------------------------------------------------------------------------------
+// Section: State Chnage
+//----------------------------------------------------------------------------------------------------------------------
+
+@function stateChangeAdjustedColor($_state, $_base-color) {
+	@if($_state == $interaction-state--hover) {
+		@return darken($_base-color, $button-hover-state-change);
+	} @else if($_state == $interaction-state--focus) {
+		@return darken($_base-color, $button-focus-state-change);
+	} @else if($_state == $interaction-state--active) {
+		@return darken($_base-color, $button-active-state-change);
+	} @else {
+		@return darken($_base-color, $button-hover-state-change);
+	}
+}
+

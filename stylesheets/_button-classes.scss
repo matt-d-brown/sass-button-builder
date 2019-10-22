@@ -1,0 +1,63 @@
+/** * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *
+ *  Filename:
+ *    Button Classes (./stylesheets/_button-classes.scss)
+ *
+ *  Description:
+ *    Defines classes to be used on button-like elements, as well as base
+ *    styles that will be extended in other files.
+ *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  */
+
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+// Section: Define Class Styles
+
+.primary-button {
+	@include createButton($_)
+}
+
+.secondary-button {
+
+}
+
+.button {
+
+}
+
+.outline-button {
+	&.primary, &.primary-button {
+	
+	}
+	&.secondary, &.secondary-button {
+	
+	}
+}
+
+.rounded-button {
+	&.primary, &.primary-button {
+	
+	}
+	&.secondary, &.secondary-button {
+	
+	}
+}
+
+.link-button, .text-button {
+	&.primary, &.primary-button {
+	
+	}
+	&.secondary, &.secondary-button {
+	
+	}
+}
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+// Section: Apply Class Styles
+
+#{$button-element-selectors} {
+	&.primary { @extend .primary-button; }
+	&.secondary { @extend .secondary-button }
+	&.outline { @extend .outline-button; }
+	&.round, &.rounded { @extend .rounded-button; }
+}

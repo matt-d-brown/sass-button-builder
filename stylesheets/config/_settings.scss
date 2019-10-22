@@ -1,0 +1,54 @@
+/** * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *
+ *  Filename:
+ *    Settings (./stylesheets/_settings.scss)
+ *
+ *  Description:
+ *    Holds values subject to change based on individual use case
+ *    and/or specific project needs.
+ *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  */
+
+//----------------------------------------------------------------------------------------------------------------------
+// Base Button Properties That May Chcange
+
+$button-min-width                   : $default-button-min-width        !default;
+$button-height                      : $default-button-height           !default;
+$button-padding                     : $default-button-padding          !default;
+$button-margin                      : $default-button-margin           !default;
+$button-line-height                 : $default-button-line-height      !default;
+$button-font-weight                 : $default-button-font-weight      !default;
+$button-font-size                   : $default-button-font-size        !default;
+$button-letter-spacing              : $default-button-letter-spacing   !default;
+$button-border-radius               : $default-button-border-radius    !default;
+$button-stack-at-width              : $default-button-stack-at-width   !default;
+$button-stack-breakpoint            : $default-button-stack-breakpoint !default;
+
+//----------------------------------------------------------------------------------------------------------------------
+// Transitions
+
+$button-transition-properties  : $default-button-transition-properties !default;
+$button-transition-duration    : $default-button-transition-duration   !default;
+$button-transition-style       : $default-button-transition-style      !default;
+
+//----------------------------------------------------------------------------------------------------------------------
+// Interaction State Adjustments
+
+$button-hover-state-change       : $default-button-hover-state-change  !default;
+$button-focus-state-change       : $default-button-focus-state-change  !default;
+$button-active-state-change      : $default-button-active-state-change !default;
+
+//----------------------------------------------------------------------------------------------------------------------
+// Button Style And Type Variations
+
+$button-border-radius--round  : 48px                      !default;
+$button-background--outline   : transparent               !default;
+$button-style-default         : $default-button-style     !default;
+$button-type-default          : $default-button-type      !default;
+
+//----------------------------------------------------------------------------------------------------------------------
+
+$AUTOMATICALLY_STYLE_LINKS_AS_TEXT_ONLY : $default-AUTOMATICALLY-STYLE-LINKS-AS-TEXT-ONLY__BOOL !default;
+
+//----------------------------------------------------------------------------------------------------------------------
+
