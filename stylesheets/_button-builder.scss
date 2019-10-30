@@ -1,13 +1,108 @@
+/** * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *
+ *  Filename:
+ *    Button Builder (./stylesheets/_button-builder.scss)
+ *
+ *  Description:
+ *    This is the file that holds the main mixins for button creation.
+ *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  */
 
 
-/***sdf
- */
+/** Mixin to set base styles that persists across all buttons **/
+@mixin buttonBase {
+	
+	@include noAppearance;
+	@include fontSmoothing;
+	@include noUserSelect;
+	@include borderRadius;
+	@include defaultTransition;
+	
+	border         : $button-border;
+	color          : $button-text--default;
+	cursor         : pointer;
+	display        : $button-display-block;
+	font-family    : $button-font-family;
+	font-size      : $button-font-size;
+	font-weight    : $button-font-weight;
+	letter-spacing : $button-letter-spacing;
+	height         : $button-height;
+	//line-height    : $button-line-height;
+	margin         : $button-margin;
+	min-width      : $button-min-width;
+	//padding        : $button-padding;
+	text-transform : capitalize;
+	transform      : $button-normal-state-untransform;
+	
+	line-height    : 1 !important;
+	padding        : 6px 16px 4px !important;
+	
+	&:hover { @include baseInteractionChangeForState(hover); }
+	&:focus { @include baseInteractionChangeForState(focus); }
+	&:active { @include baseInteractionChangeForState(active); }
+	&:disabled { @include baseInteractionChangeForState(disabled); }
+	
+}
 
-/// Mixin to create buttons of TYPE and STYLE
-/// @param {String} $_type  - Button type ('solid'|'rounded'|'outline'|'text')
-/// @param {String} $_style - Button style ('default'|'normal'|'primary'|'secondary')
-@mixin createButton($_type: $default-button-type, $_style: $default-button-style) {
+@mixin solidButton($_color: $button-color--default) {
+	@include buttonBase;
+	background   : $_color;
+	color        : white;
+	border-color : $_color;
+	font-weight : 700;
+	&:hover { @include interactionChangesForState(hover, $button-type-solid, $_color); }
+	&:focus { @include interactionChangesForState(focus, $button-type-solid, $_color); }
+	&:active { @include interactionChangesForState(active, $button-type-solid, $_color); }
+}
+@mixin roundedButton($_color: $button-color--default, $_border-radius: $button-border-radius--round) {
+	@include buttonBase;
+	background   : $_color;
+	color        : white;
+	border-color : $_color;
+	@include borderRadius($_border-radius);
+	&:hover { @include interactionChangesForState(hover, $button-type-solid, $_color); }
+	&:focus { @include interactionChangesForState(focus, $button-type-solid, $_color); }
+	&:active { @include interactionChangesForState(active, $button-type-solid, $_color); }
+}
+@mixin outlineButton($_color: $button-color--default) {
+	@include buttonBase;
+	@include setColorFor((border-color, color), $_color);
+	background: transparent;
+	letter-spacing : $button-letter-spacing--outline;
+	font-weight : $button-font-weight--outline;
+	
+	&:hover {
+		@include interactionChangesForState(hover, $button-type-outline, $_color);
+		background : transparent;
+	}
+	&:focus {
+		@include interactionChangesForState(focus, $button-type-outline, $_color);
+		background : transparent;
+	}
+	&:active {
+		@include interactionChangesForState(active, $button-type-outline, $_color);
+		background : rgba($_color, 0.25);
+	}
+}
 
+/**
+ * Mixin to create buttons of TYPE and STYLE
+ * @param {String} $_type  - Button type ('solid'|'rounded'|'outline'|'text')
+ * @param {String} $_style - Button style ('default'|'normal'|'primary'|'secondary')
+**/
+@mixin createButtonOfTypeAndStyle($_type: $default-button-type, $_style: $default-button-style) {
 
 
 }
+@mixin createButtonOfTypeWithColor($_type: $default-button-type, $_color: $button-color--default) {
+	
+	@if($_type == $button-type-outline) {
+		@include outlineButton($_color);
+	} @else if($_type == $button-type-rounded) {
+		@include roundedButton($_color);
+	} @else {
+		@include solidButton($_color);
+	}
+	
+}
+

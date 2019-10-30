@@ -1,0 +1,201 @@
+/** * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *
+ *  Filename:
+ *    Mixins (./stylesheets/_mixins.scss)
+ *
+ *  Description:
+ *    This file defines and holds mixins that are not
+ *    directly, strictly related to button styles but
+ *    are instead more generic in nature and still used
+ *    in styling buttons.
+ *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  */
+
+
+/** Mixin to apply font-smoothing / antialias. **/
+@mixin fontSmoothing {
+	text-rendering            : optimizeLegibility !important;
+	-webkit-font-smoothing    : antialiased !important;
+	-moz-osx-font-smoothing   : grayscale !important;
+
+	&::before, &::after, &:before, &:after {
+		text-rendering          : optimizeLegibility !important;
+		-webkit-font-smoothing  : antialiased !important;
+		-moz-osx-font-smoothing : grayscale !important;
+	}
+
+}
+
+@mixin noAppearance {
+	-webkit-appearance          : none;
+	-moz-appearance     : none;
+	appearance : none;
+}
+
+@mixin hiddenBackfaceVisibility {
+	-webkit-backface-visibility : hidden;-moz-backface-visibility : hidden;-ms-backface-visibility : hidden;backface-visibility : hidden;
+}
+
+@mixin transitionAllProperties($_duration: $default-button-transition-duration) {
+	-webkit-transition : all $_duration;
+	-moz-transition : all $_duration;
+	-ms-transition : all $_duration;
+	-o-transition : all $_duration;
+	transition : all $_duration;
+}
+
+@mixin defaultTransition {
+	@include transitionAllProperties();
+}
+
+@mixin borderRadius($_border-radius: $default-button-border-radius) {
+	-webkit-border-radius : $_border-radius;-moz-border-radius : $_border-radius;border-radius : $_border-radius;
+}
+
+@mixin noUserSelect {
+	-webkit-user-select : none;-moz-user-select : none;-ms-user-select : none;user-select : none;
+}
+
+@mixin setColorFor($_properties-list: (border-color, background), $_color: $default-button-color) {
+	@each $item in $_properties-list {
+		#{$item}: $_color;
+	}
+}
+
+@mixin baseInteractionChangeForState($_state) {
+	
+	//--------------------------------------------------------------------------
+	// Hover State
+	//--------------------------------------------------------------------------
+	@if ($_state == hover) {
+
+	//--------------------------------------------------------------------------
+	// Focus State
+	//--------------------------------------------------------------------------
+	} @else if ($_state == focus) {
+		outline: none !important;
+		text-decoration : none;
+		box-shadow: $button-focus-shadow;
+		
+	//--------------------------------------------------------------------------
+	// Active State
+	//--------------------------------------------------------------------------
+	} @else if ($_state == active) {
+		transform: $button-active-state-transform;
+	
+	//--------------------------------------------------------------------------
+	// Disabled State
+	//--------------------------------------------------------------------------
+	} @else {
+		cursor : not-allowed !important;
+		opacity : 0.5;
+	}
+}
+
+@mixin interactionChangesForState($_state, $_button-type: $default-button-type, $_color: $button-color--default) {
+
+	$_hover-color: hoverStateForColor($_color);
+	$_focus-color: focusStateForColor($_color);
+	$_active-color: activeStateForColor($_color);
+
+	//————————————————————————————————————————————————————————————————————————————
+	// Outline Buttons
+	//————————————————————————————————————————————————————————————————————————————
+	@if($_button-type == $button-type-outline) {
+
+		//--------------------------------------------------------------------------
+		// Hover State
+		//--------------------------------------------------------------------------
+		@if($_state == hover) {
+			@include setColorFor((border-color, color), $_hover-color);
+
+		//--------------------------------------------------------------------------
+		// Focus State
+		//--------------------------------------------------------------------------
+		} @else if($_state == focus) {
+			@include setColorFor((border-color, color), $_color);
+			-webkit-box-shadow : focusShadowForColor($_color);
+			-moz-box-shadow : focusShadowForColor($_color);
+			box-shadow : focusShadowForColor($_color);
+			
+		//--------------------------------------------------------------------------
+		// Active State
+		//--------------------------------------------------------------------------
+		} @else if($_state == active) {
+			@include setColorFor((border-color, color), $_active-color);
+			
+		//--------------------------------------------------------------------------
+		// Disabled State
+		//--------------------------------------------------------------------------
+		} @else {
+
+		}
+
+	//————————————————————————————————————————————————————————————————————————————
+	// Rounded Buttons
+	//————————————————————————————————————————————————————————————————————————————
+	} @else if ($_button-type == $button-type-rounded) {
+
+		//--------------------------------------------------------------------------
+		// Hover State
+		//--------------------------------------------------------------------------
+		@if ($_state == hover) {
+			@include setColorFor((border-color, background), $_hover-color);
+
+		//--------------------------------------------------------------------------
+		// Focus State
+		//--------------------------------------------------------------------------
+		} @else if ($_state == focus) {
+			@include setColorFor((border-color, background), $_focus-color);
+			-webkit-box-shadow : focusShadowForColor($_color);
+			-moz-box-shadow    : focusShadowForColor($_color);
+			box-shadow         : focusShadowForColor($_color);
+
+		//--------------------------------------------------------------------------
+		// Active State
+		//--------------------------------------------------------------------------
+		} @else if ($_state == active) {
+			@include setColorFor((border-color, background), $_active-color);
+			
+		//--------------------------------------------------------------------------
+		// Disabled State
+		//--------------------------------------------------------------------------
+		} @else {
+
+		}
+
+	//————————————————————————————————————————————————————————————————————————————
+	// Solid Buttons
+	//————————————————————————————————————————————————————————————————————————————
+	} @else {
+
+		//--------------------------------------------------------------------------
+		// Hover State
+		//--------------------------------------------------------------------------
+		@if ($_state == hover) {
+			@include setColorFor((border-color, background), $_hover-color);
+
+		//--------------------------------------------------------------------------
+		// Focus State
+		//--------------------------------------------------------------------------
+		} @else if ($_state == focus) {
+			@include setColorFor((border-color, background), $_focus-color);
+			-webkit-box-shadow : focusShadowForColor($_color);
+			-moz-box-shadow    : focusShadowForColor($_color);
+			box-shadow         : focusShadowForColor($_color);
+
+		//--------------------------------------------------------------------------
+		// Active State
+		//--------------------------------------------------------------------------
+		} @else if ($_state == active) {
+			@include setColorFor((border-color, background), $_active-color);
+		
+		//--------------------------------------------------------------------------
+		// Disabled State
+		//--------------------------------------------------------------------------
+		} @else {
+
+		}
+
+	}
+}

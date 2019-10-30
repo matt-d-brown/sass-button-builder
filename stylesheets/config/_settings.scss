@@ -10,41 +10,76 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  */
 
 //----------------------------------------------------------------------------------------------------------------------
-// Base Button Properties That May Chcange
+// Base Button Properties That May Change
 
-$button-min-width                   : $default-button-min-width        !default;
-$button-height                      : $default-button-height           !default;
-$button-padding                     : $default-button-padding          !default;
-$button-margin                      : $default-button-margin           !default;
-$button-line-height                 : $default-button-line-height      !default;
-$button-font-weight                 : $default-button-font-weight      !default;
-$button-font-size                   : $default-button-font-size        !default;
-$button-letter-spacing              : $default-button-letter-spacing   !default;
-$button-border-radius               : $default-button-border-radius    !default;
-$button-stack-at-width              : $default-button-stack-at-width   !default;
-$button-stack-breakpoint            : $default-button-stack-breakpoint !default;
+$button-min-width                  : $default-button-min-width        !default;
+$button-height                     : $default-button-height           !default;
+$button-padding                    : $default-button-padding          !default;
+$button-margin                     : $default-button-margin           !default;
+
+$button-line-height                : $default-button-line-height            !default;
+$button-font-weight                : $default-button-font-weight            !default;
+$button-font-weight--outline       : $default-outline-button-font-weight    !default;
+$button-font-size                  : $default-button-font-size              !default;
+$button-letter-spacing             : $default-button-letter-spacing         !default;
+$button-letter-spacing--outline    : $default-outline-button-letter-spacing !default;
+
+$button-stack-at-width             : $default-button-stack-at-width   !default;
+$button-stack-breakpoint           : $default-button-stack-breakpoint !default;
+
+$button-color                      : $default-button-color            !default;
+$button-background-color           : $default-button-background-color !default;
+
+$button-border-radius              : $default-button-border-radius    !default;
+$button-border-color               : $default-button-border-color     !default;
+$button-border-width               : $default-button-border-width     !default;
+
+$button-border      : $button-border-color solid $button-border-width !default;
+$button-font-family : $primary-fontstack, $fallback-fontstack         !default;
+
+$button-active-state-transform: $default-button-active-state-transform !default;
+$button-normal-state-untransform: translate3d(0,0,0);
+
+/*----------------------------------------------------------------------------------------------------------------------
+ [•] Section: Colors
+----------------------------------------------------------------------------------------------------------------------*/
+
+$button-color--default   : darken(whitesmoke, 15%)  !default;
+$button-text--default    : darken(whitesmoke, 70%)  !default;
+$button-color--primary   : #7700FF                  !default;
+$button-color--secondary : #2D3036                  !default;
+$button-color--alternate : #304756                  !default;
+$button-color--dark      : #111111                  !default;
+$button-color--light     : whitesmoke               !default;
+$button-color--danger    : $default-button-color--danger  !default;
+$button-color--info      : #3547DF                        !default;
+$button-color--success   : #2DCB42                        !default;
+$button-color--warning   : #FF7000                        !default;
+
+$button-focus-shadow : 0 0 0 3px rgba($button-color--primary, 0.5) !default;
 
 //----------------------------------------------------------------------------------------------------------------------
 // Transitions
 
-$button-transition-properties  : $default-button-transition-properties !default;
-$button-transition-duration    : $default-button-transition-duration   !default;
-$button-transition-style       : $default-button-transition-style      !default;
+$button-transition-properties      : $default-button-transition-properties !default;
+$button-transition-duration        : $default-button-transition-duration   !default;
+$button-transition-style           : $default-button-transition-style      !default;
 
 //----------------------------------------------------------------------------------------------------------------------
 // Interaction State Adjustments
 
-$button-hover-state-change       : $default-button-hover-state-change  !default;
-$button-focus-state-change       : $default-button-focus-state-change  !default;
-$button-active-state-change      : $default-button-active-state-change !default;
+$button-hover-state-change         : $default-button-hover-state-change    !default;
+$button-focus-state-change         : $default-button-focus-state-change    !default;
+$button-active-state-change        : $default-button-active-state-change   !default;
 
 //----------------------------------------------------------------------------------------------------------------------
 // Button Style And Type Variations
 
-$button-border-radius--round  : 48px                      !default;
-$button-background--outline   : transparent               !default;
-$button-style-default         : $default-button-style     !default;
-$button-type-default          : $default-button-type      !default;
+$button-border-radius--round       : 48px                      !default;
+$button-background--outline        : transparent               !default;
+$button-style-default              : $default-button-style     !default;
+$button-type-default               : $default-button-type      !default;
+
 
 //----------------------------------------------------------------------------------------------------------------------
 

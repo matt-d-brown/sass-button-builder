@@ -10,18 +10,21 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  */
 
 //----------------------------------------------------------------------------------------------------------------------
-// Section: State Chnage
+// Section: State Change
 //----------------------------------------------------------------------------------------------------------------------
 
-@function stateChangeAdjustedColor($_state, $_base-color) {
-	@if($_state == $interaction-state--hover) {
-		@return darken($_base-color, $button-hover-state-change);
-	} @else if($_state == $interaction-state--focus) {
-		@return darken($_base-color, $button-focus-state-change);
-	} @else if($_state == $interaction-state--active) {
-		@return darken($_base-color, $button-active-state-change);
-	} @else {
-		@return darken($_base-color, $button-hover-state-change);
-	}
-}
+//@function stateChangeAdjustedColor($_state, $_base-color) {
+//	@if($_state == hover) { @return darken($_base-color, 10%);}
+//	@else if($_state == focus) { @return darken($_base-color, 20%);}
+//	@else if($_state == active) { @return darken($_base-color, 30%);}
+//	@else { @return darken($_base-color, 10%);}
+//}
 
+@function hoverStateForColor($_color) { @return darken($_color, 8%); }
+@function focusStateForColor($_color) { @return darken($_color, 16%); }
+@function activeStateForColor($_color) { @return darken($_color, 24%); }
+
+@function focusShadowForColor($_color) {
+	$focus-shadow : 0 0 0 3px rgba($_color, 0.25);
+	@return $focus-shadow;
+}

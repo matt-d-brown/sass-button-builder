@@ -13,7 +13,7 @@
 // Section            :  TYPOGRAPHY
 
 /* System Fontstack */
-$font-family-system-sans-serif       : // Safari for OS X and iOS (San Francisco)
+$font-family-system-sans-serif                        : // Safari for OS X and iOS (San Francisco)
 		-apple-system,
 			// Chrome < 56 for OS X (San Francisco)
 		BlinkMacSystemFont,
@@ -26,68 +26,110 @@ $font-family-system-sans-serif       : // Safari for OS X and iOS (San Francisco
 			// Emoji fonts
 		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
 /* Make it the fallback */
-$fallback-fontstack                  : $font-family-system-sans-serif;
+$fallback-fontstack                                   : $font-family-system-sans-serif;
 /* Set Primary Fontstack */
-$primary-fontstack                   : $fallback-fontstack !default;
-/* Set global fontstack variable to $PRIMARY with $FALLBACK as a fallback default */
-$fontstack                           : $primary-fontstack, $fallback-fontstack !default;
+$primary-fontstack                                    : $fallback-fontstack !default;
+/* Set global default fontstack variable to $PRIMARY with $FALLBACK as a fallback default */
+$default-button-fontstack                             : $primary-fontstack, $fallback-fontstack !default;
 
 //----------------------------------------------------------------------------------------------------------------------
 // Section:  BUTTON VARIABLES
 
-$button-type-rounded    : 'rounded';
-$button-type-outline    : 'outine';
-$button-type-solid      : 'solid';
-$button-type-text       : 'text';
+$button-type-rounded                                  : 'rounded';
+$button-type-outline                                  : 'outine';
+$button-type-solid                                    : 'solid';
+$button-type-text                                     : 'text';
 
-$button-style-normal    : 'normal';
-$button-style-primary   : 'primary';
-$button-style-secondary : 'secondary';
+$button-style-normal                                  : 'normal';
+$button-style-primary                                 : 'primary';
+$button-style-secondary                               : 'secondary';
 
-$button-width-fullwidth : 100%;
-$button-display-block   : block;
-$button-display-inline  : inline-block;
+$button-width-fullwidth                               : 100%;
+$button-display-block                                 : block;
+$button-display-inline                                : inline-block;
 
 //----------------------------------------------------------------------------------------------------------------------
 // Section: DEFAULTS
 
-$button-radius--default-button-style : 3px;
-$button-radius--rounded-button-style : 48px;
-$button-radius--square-button-style  : 0;
+$button-radius--default-button-style                  : 3.25px;
+$button-radius--rounded-button-style                  : 48px;
+$button-radius--square-button-style                   : 0;
 
-$default-button-min-width            : 144px;
-$default-button-height               : 56px;
-$default-button-padding              : 0 1em;
-$default-button-margin               : 1em 0 1em;
-$default-button-line-height          : 2.5;
-$default-button-font-weight          : 600;
-$default-button-font-size            : 1.125em;
-$default-button-letter-spacing       : 0.5px;
-$default-button-border-radius        : 3px;
-$default-button-display              : $button-display-inline;
-$default-button-display-fullwidth    : $button-display-block;
-$default-button-stack-breakpoint     : 560px;
-$default-button-stack-at-width       : 560px;
+$default-button-min-width                             : 148px;
+$default-button-height                                : 2.75em;
+$default-button-padding                               : 0 1em;
+$default-button-margin                                : 1em 0 1em;
+$default-button-line-height                           : 2.5;
+$default-button-font-weight                           : 800;
+$default-outline-button-font-weight                   : 600;
+//$default-button-font-size                             : 1.125em;
+$default-button-font-size                             : 18px;
+//$default-button-letter-spacing                        : 0.5px;
+$default-button-letter-spacing                        : 1px;
+$default-outline-button-letter-spacing                : 1.5px;
+$default-button-border-radius                         : 3px;
+//$default-button-border-radius                         : .2em;
+$default-button-display                               : $button-display-inline;
+$default-button-display-fullwidth                     : $button-display-block;
+$default-button-stack-breakpoint                      : 560px;
+$default-button-stack-at-width                        : 560px;
 
-$default-button-transition-properties: all;
-$default-button-transition-duration  : 100ms;
-$default-button-transition-style     : linear;
+$default-button-color                                 : #333333;
+$default-button-background-color                      : #A4A4A4;
+$default-button-border-color                          : #A4A4A4;
+$default-button-border-width                          : 2px;
 
-$default-button-state-adjustment     : 10%;
-$default-button-hover-state-change   : 10%;
-$default-button-focus-state-change   : 20%;
-$default-button-active-state-change  : 30%;
+$default-button-transition-properties                 : all;
+$default-button-transition-duration                   : 100ms;
+$default-button-transition-style                      : linear;
 
-$default-button-type                 : $button-type-solid;
-$default-button-style                : $button-style-normal;
+$default-button-state-adjustment                      : 10%;
+$default-button-hover-state-change                    : 10%;
+$default-button-focus-state-change                    : 20%;
+$default-button-active-state-change                   : 30%;
+
+$default-button-type                                  : $button-type-solid;
+$default-button-style                                 : $button-style-normal;
+
+//----------------------------------------------------------------------------------------------------------------------
+// Section: DEFAULT COLORS
+
+/*$default-button-color--default                : darken(whitesmoke, 15%);
+$default-button-color--primary                : #7700FF;
+$default-button-color--secondary              : #2D3036;
+$default-button-color--alternate              : #304756;
+$default-button-color--dark                   : #111111;
+$default-button-color--light                  : whitesmoke;
+$default-button-color--danger                 : tomato;
+$default-button-color--info                   : #3547DF;
+$default-button-color--success                : #02E00D;
+$default-button-color--warning                : #D56700;*/
+
+$default-button-color--default                        : darken(whitesmoke, 15%);
+$default-button-color--primary                        : #7700FF;
+$default-button-color--secondary                      : #333333;
+$default-button-color--alternate                      : #304756;
+$default-button-color--dark                           : #111111;
+$default-button-color--light                          : whitesmoke;
+$default-button-color--danger                         : #FF2045;
+$default-button-color--info                           : #3547DF;
+$default-button-color--success                        : #15A845;
+$default-button-color--warning                        : #E55F17;
 
 //----------------------------------------------------------------------------------------------------------------------
 // Section: INTERACTION STATE CHANGE
 
-$interaction-state--normal            : 'normal';
-$interaction-state--hover             : 'hover';
-$interaction-state--focus             : 'focus';
-$interaction-state--active            : 'active';
+//$interaction-state--normal                            : 'normal';
+//$interaction-state--hover                             : 'hover';
+//$interaction-state--focus                             : 'focus';
+//$interaction-state--active                            : 'active';
+
+$interaction-state--normal : normal;
+$interaction-state--hover  : hover;
+$interaction-state--focus  : focus;
+$interaction-state--active : active;
+
+$default-button-active-state-transform                : translate3d(0, 4px, 0);
 
 //----------------------------------------------------------------------------------------------------------------------
 // Section: LINK-STYLE / TEXT-ONLY STYLE BUTTON BOOL SETTING
@@ -100,7 +142,6 @@ $interaction-state--active            : 'active';
  *       ...
  *       (The default behaviour is to result in NORMAL button style and only
  *       style as "link-style"/"text-only" when the `.text-only`/`.link` classes
- *       are applied)
-**/
+ *       are applied)                                                                                                 */
 
 $default-AUTOMATICALLY-STYLE-LINKS-AS-TEXT-ONLY__BOOL : false;

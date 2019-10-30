@@ -1,0 +1,137 @@
+@import "../stylesheets/stylesheets";
+@import "../sass-button-builder";
+
+#{$button-element-selectors} {
+	@include buttonBase;
+	@include solidButton;
+	color: $button-text--default;
+	
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Section: For Demo Purposes Only
+//----------------------------------------------------------------------------------------------------------------------
+
+.container {
+	width        : 90%;
+	max-width    : 768px;
+	margin-left  : auto;
+	margin-right : auto;
+	/* padding: 2em 0; */
+}
+main {
+	@extend .container;
+	padding : 2em 0;
+}
+.grid {
+	display : flex;
+	flex-direction : row;
+	align-items : center;
+	align-content : center;
+	justify-content : space-between;
+	flex-wrap: wrap;
+	
+	& > * {
+		margin : 0.5em !important;
+	}
+	margin : 2em 0;
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Section: DEVELOPMENT PURPOSES ONLY
+//----------------------------------------------------------------------------------------------------------------------
+
+.primary  {
+	@include solidButton($button-color--primary);
+}
+.secondary {
+	@include solidButton($button-color--secondary);
+	//height : 48px !important;
+}
+.success {
+	@include solidButton($button-color--success);
+}
+.danger {
+	@include solidButton($button-color--danger);
+}
+.warning {
+	@include solidButton($button-color--warning);
+}
+.info {
+	@include solidButton($button-color--info);
+}
+.alternate {
+	@include solidButton($button-color--alternate);
+}
+.outline {
+	@include outlineButton($button-text--default);
+	&.primary {@include outlineButton($button-color--primary);}
+	&.secondary {
+		@include outlineButton($button-color--secondary);
+		height : 46px !important;
+		line-height : 1 !important;
+	}
+	&.alternate { @include outlineButton($button-color--alternate); }
+	&.info { @include outlineButton($button-color--info); }
+	&.success { @include outlineButton($button-color--success); }
+	&.warning { @include outlineButton($button-color--warning); }
+	&.danger { @include outlineButton($button-color--danger); }
+}
+.round {
+	@include borderRadius($button-border-radius--round);
+	letter-spacing : .5px !important;
+	//padding-top : 2px !important;
+}
+.round.outline {
+	@include borderRadius($button-border-radius--round);
+	-webkit-border-radius : $button-border-radius--round !important;-moz-border-radius : $button-border-radius--round !important;border-radius : $button-border-radius--round !important;
+}
+
+.circular {
+	min-width : unset;
+	width : 48px;
+	height : 48px;
+	vertical-align : middle;
+	padding : 0 !important;
+	line-height : 0 !important;
+	@include borderRadius(3em);
+}
+
+.icon-only-button {
+	@extend .circular;
+	font-size : 24px !important;
+	&.right-arrow {
+		font-size : 24px !important;
+		height : 48px !important;
+		width : 48px !important;
+		line-height : 1 !important;
+		min-width : 48px !important;
+		content: "ABV";
+		&:before {
+			content : "&ShortRightArrow;";
+		}
+		
+		
+		&:after {
+			content : "ABC";
+		}
+	}
+}
+.right-arrow {
+	font-size : 24px !important;
+	width : 48px !important;
+	padding : 0 !important;
+	line-height : 0 !important;
+	max-width : 48px !important;
+}
+
+$icon-prefix : blah-;
+.#{$icon-prefix} {
+	&* {
+		background : #000000 !important;
+	}
+}
+
+
+
+
