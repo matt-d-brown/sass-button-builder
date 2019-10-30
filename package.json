@@ -1,6 +1,6 @@
 {
   "name": "sass-button-builder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Collection Of SCSS Mixins To Facilitate The Creation Of Button Styles.",
   "main": "index.js",
   "repository": "git@github.com:matt-d-brown/sass-button-builder.git",
