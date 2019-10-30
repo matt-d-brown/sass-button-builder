@@ -59,3 +59,11 @@ typings/
 
 # next.js build output
 .next
+
+# GODDAMN FUCKING USELESS HIDDEN macOS FILE
+.DS_STORE
+
+.idea/$CACHE_FILE$
+.idea/$PRODUCT_WORKSPACE_FILE$
+.idea/$PROJECT_FILE$
+.idea
